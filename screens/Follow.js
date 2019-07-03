@@ -14,7 +14,14 @@ export default class Follow extends React.Component {
           <Button
             key={frn}
             title={`Follow ${frn}`}
-            onPress={() => doFollow(index)}
+            onPress={() => {
+              doFollow(index);
+              this.props.navigation.navigate("Followers", {
+                followRequest: followReq,
+                following: following,
+                doFollow: doFollow
+              });
+            }}
           />
         ))}
 
